@@ -21,9 +21,7 @@ app.use("/cart", CartRouter);
 app.use("/auth", AuthenticationRouter);
 app.use("/order", OrderRouter);
 
-mongoose.connect(
-  "mongodb+srv://LINA:ANIS2010@cluster0.63xvddw.mongodb.net/test"
-);
+await mongoose.connect(process.env.MONGO_URI);
 
 app.listen(server_port, (error) => {
   if (error) {
